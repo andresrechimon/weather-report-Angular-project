@@ -1,0 +1,26 @@
+input{
+    text-align: center;
+}
+
+.size{
+    font-size: 2rem;
+}
+
+@media (max-width: 414px) {
+    .lg {
+      display: none;
+    }
+}
+
+@media (min-width: 414px) {
+    .sm {
+      display: none;
+    }
+    .col-lg-6{
+        margin-left: 100px;
+    }
+}
+
+.card{
+    border: 1px solid #033c73;
+}

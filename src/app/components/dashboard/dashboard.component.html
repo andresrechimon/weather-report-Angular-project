@@ -1,0 +1,49 @@
+<div 
+*ngIf="showError"
+class="alert alert-dismissible alert-danger">
+    <div class="text-center">
+        <strong>ERROR: La localidad ingresada no figura en la API</strong>
+    </div>
+</div>
+
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-4">
+           <img class="lg" src="../../../assets/img/WR.jpg" width="400px" height="600px"> 
+           <img class="sm" src="../../../assets/img/WR-sm.jpg" width="350px" height="400px"> 
+        </div>
+        <div class="col-lg-6">
+            <input 
+            type="text" 
+            class="form-control form-control-lg size" 
+            placeholder="Ingrese localidad..."
+            [(ngModel)]="city"
+            >
+            <button 
+            class="btn btn-primary btn-lg btn-block mt-4 size"
+            [disabled]="city === ''"
+            (click)="weatherReport()"
+            >Obterner clima</button>
+
+            <div 
+            *ngIf="loading"
+            class="text-center mt-3">
+                <div class="spinner-grow text-info" role="status"></div>
+                <div class="spinner-grow text-info" role="status"></div>
+                <div class="spinner-grow text-info" role="status"></div>
+            </div>
+
+            <div 
+            *ngIf="query"
+            class="card mt-3"
+            translate="yes"
+            >
+                <div class="card-body">
+                    <p><b>Temperatura: </b>{{temp | number: '1.2-2'}} C°</p>
+                    <p><b>Humedad: </b>{{humidity}}%</p>
+                    <p><b>Clima: </b>{{time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
